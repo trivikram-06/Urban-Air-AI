@@ -16,3 +16,5 @@ __pycache__/
 
 # macOS
 .DS_Store
+
+ai/datasets/raw/aqi/aqi_india_38cols_knn_final.csv
