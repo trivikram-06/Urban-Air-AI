@@ -1,0 +1,39 @@
+.sidebar{
+
+    width:230px;
+    background:white;
+
+    padding:20px;
+
+    box-shadow:0 0 10px rgba(0,0,0,.08);
+}
+
+.menu-item{
+
+    display:flex;
+    gap:12px;
+
+    padding:15px;
+
+    cursor:pointer;
+
+    border-radius:8px;
+
+    margin-bottom:10px;
+
+    transition:.3s;
+}
+
+.menu-item:hover{
+
+    background:#e2e8f0;
+}
+.menu-item{
+    text-decoration:none;
+    color:#333;
+}
+
+.menu-item.active{
+    background:#0f172a;
+    color:white;
+}

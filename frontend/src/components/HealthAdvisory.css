@@ -1,0 +1,18 @@
+.health-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.health-card h2 {
+  margin-bottom: 15px;
+  color: #0f172a;
+}
+
+.health-card p {
+  color: #475569;
+  line-height: 1.7;
+  font-size: 16px;
+}
