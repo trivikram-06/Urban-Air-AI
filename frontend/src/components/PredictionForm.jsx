@@ -5,9 +5,10 @@ import { usePrediction } from "../hooks/usePrediction";
 import API from "../services/api";
 
 function PredictionForm() {
-
   const navigate = useNavigate();
   const { setPrediction } = usePrediction();
+
+  const [loading, setLoading] = useState(false);
 
   const [formData, setFormData] = useState({
     city: "",
@@ -29,13 +30,28 @@ function PredictionForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
+    // Validation
+    if (
+      !formData.city ||
+      !formData.pm25 ||
+      !formData.pm10 ||
+      !formData.humidity ||
+      !formData.wind_speed
+    ) {
+      alert("⚠ Please fill all required fields.");
+      return;
+    }
 
+    setLoading(true);
+
+    try {
       const payload = {
         city: formData.city,
         latitude: 12.9716,
         longitude: 77.5946,
+
         month: new Date().getMonth() + 1,
+
         season: formData.season,
         time_of_day: formData.time_of_day,
 
@@ -48,6 +64,7 @@ function PredictionForm() {
 
         pm2_5_ugm3: Number(formData.pm25),
         pm10_ugm3: Number(formData.pm10),
+
         co_ugm3: 350,
         no2_ugm3: 20,
         so2_ugm3: 10,
@@ -75,76 +92,115 @@ function PredictionForm() {
 
       setPrediction(response.data);
 
-      alert("Prediction Generated Successfully!");
+      setLoading(false);
+
+      alert("AQI Prediction Generated Successfully!");
 
       navigate("/dashboard");
 
     } catch (error) {
-
       console.error(error);
-      alert("Prediction Failed");
 
+      setLoading(false);
+
+      alert("❌ Unable to connect to AI Prediction Server.");
     }
   };
 
   return (
     <form className="prediction-form" onSubmit={handleSubmit}>
 
-      <input
-        type="text"
-        name="city"
-        placeholder="City"
-        onChange={handleChange}
-      />
+      {/* Location Section */}
 
-      <input
-        type="number"
-        name="humidity"
-        placeholder="Humidity (%)"
-        onChange={handleChange}
-      />
+      <div className="form-section">
 
-      <input
-        type="number"
-        name="wind_speed"
-        placeholder="Wind Speed (km/h)"
-        onChange={handleChange}
-      />
+        <h2>📍 Location Information</h2>
 
-      <input
-        type="number"
-        name="pm25"
-        placeholder="PM2.5 (µg/m³)"
-        onChange={handleChange}
-      />
+        <input
+          type="text"
+          name="city"
+          placeholder="Enter City"
+          value={formData.city}
+          onChange={handleChange}
+        />
 
-      <input
-        type="number"
-        name="pm10"
-        placeholder="PM10 (µg/m³)"
-        onChange={handleChange}
-      />
+        <select
+          name="season"
+          value={formData.season}
+          onChange={handleChange}
+        >
+          <option value="Summer">Summer</option>
+          <option value="Winter">Winter</option>
+          <option value="Monsoon">Monsoon</option>
+        </select>
 
-      <select
-        name="season"
-        onChange={handleChange}
+        <select
+          name="time_of_day"
+          value={formData.time_of_day}
+          onChange={handleChange}
+        >
+          <option value="Morning">Morning</option>
+          <option value="Afternoon">Afternoon</option>
+          <option value="Night">Night</option>
+        </select>
+
+      </div>
+
+      {/* Weather Section */}
+
+      <div className="form-section">
+
+        <h2>🌤 Weather Information</h2>
+
+        <input
+          type="number"
+          name="humidity"
+          placeholder="Humidity (%)"
+          value={formData.humidity}
+          onChange={handleChange}
+        />
+
+        <input
+          type="number"
+          name="wind_speed"
+          placeholder="Wind Speed (km/h)"
+          value={formData.wind_speed}
+          onChange={handleChange}
+        />
+
+      </div>
+
+      {/* Pollution Section */}
+
+      <div className="form-section">
+
+        <h2>🏭 Pollution Information</h2>
+
+        <input
+          type="number"
+          name="pm25"
+          placeholder="PM2.5 (µg/m³)"
+          value={formData.pm25}
+          onChange={handleChange}
+        />
+
+        <input
+          type="number"
+          name="pm10"
+          placeholder="PM10 (µg/m³)"
+          value={formData.pm10}
+          onChange={handleChange}
+        />
+
+      </div>
+
+      <button
+        type="submit"
+        disabled={loading}
       >
-        <option value="Summer">Summer</option>
-        <option value="Winter">Winter</option>
-        <option value="Monsoon">Monsoon</option>
-      </select>
-
-      <select
-        name="time_of_day"
-        onChange={handleChange}
-      >
-        <option value="Morning">Morning</option>
-        <option value="Afternoon">Afternoon</option>
-        <option value="Night">Night</option>
-      </select>
-
-      <button type="submit">
-        Predict AQI
+        {loading
+          ? "⏳ Predicting Air Quality..."
+          : "🚀 Generate AI Prediction"}
       </button>
 
     </form>

@@ -1,15 +1,76 @@
 .navbar{
-    height:70px;
+
+    height:80px;
+
     background:#0f172a;
+
     color:white;
 
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
-    padding:0 30px;
+    padding:0 35px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
 }
 
-.nav-right{
+/* Left */
+
+.navbar-left h2{
+
+    font-size:30px;
+
+    margin-bottom:3px;
+}
+
+.navbar-left p{
+
+    color:#cbd5e1;
+
     font-size:15px;
+}
+
+/* Right */
+
+.navbar-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+    font-size:15px;
+}
+
+.status{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-weight:600;
+}
+
+.green-dot{
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:#22c55e;
+
+    display:inline-block;
+}
+
+.datetime{
+
+    color:#e2e8f0;
 }

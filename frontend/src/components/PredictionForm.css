@@ -1,33 +1,140 @@
 .prediction-form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+}
+
+.form-section{
+
+    background:#fff;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
     display:grid;
+
     grid-template-columns:repeat(2,1fr);
-    gap:15px;
-    margin-top:30px;
+
+    gap:18px;
+}
+
+.form-section h2{
+
+    grid-column:span 2;
+
+    margin-bottom:10px;
+
+    color:#0f172a;
 }
 
 .prediction-form input,
 .prediction-form select{
 
-    padding:12px;
+    padding:15px;
 
-    border:1px solid #ccc;
+    border:1px solid #d1d5db;
 
-    border-radius:8px;
+    border-radius:10px;
+
+    font-size:15px;
+
+    transition:.3s;
+}
+
+.prediction-form input:focus,
+.prediction-form select:focus{
+
+    outline:none;
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
 }
 
 .prediction-form button{
 
-    grid-column:span 2;
-
-    padding:15px;
-
-    background:#0f172a;
-
-    color:white;
+    padding:18px;
 
     border:none;
 
-    border-radius:8px;
+    border-radius:12px;
+
+    background:linear-gradient(90deg,#2563eb,#1d4ed8);
+
+    color:#fff;
+
+    font-size:18px;
+
+    font-weight:bold;
 
     cursor:pointer;
+
+    transition:.3s;
+}
+
+.prediction-form button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 25px rgba(37,99,235,.25);
+}
+
+.prediction-form button{
+
+    width:100%;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+
+    color:white;
+
+    transition:.3s;
+}
+
+.prediction-form button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 20px rgba(37,99,235,.35);
+}
+
+.prediction-form button:disabled{
+
+    opacity:.7;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+    box-shadow:none;
+}
+
+@media(max-width:768px){
+
+    .form-section{
+
+        grid-template-columns:1fr;
+    }
+
+    .form-section h2{
+
+        grid-column:span 1;
+    }
 }

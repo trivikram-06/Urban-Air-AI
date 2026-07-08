@@ -1,16 +1,57 @@
 .recommendation-card{
-    background:white;
-    padding:20px;
-    border-radius:12px;
+
+    background:#fff;
+
+    padding:25px;
+
     margin-top:25px;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+    border-radius:18px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.recommendation-card h2{
+
+    margin-bottom:20px;
+}
+
+.recommendation-card p{
+
+    font-size:17px;
+
+    color:#444;
 }
 
 .recommendation-card ul{
+
+    list-style:none;
+
+    padding:0;
+
     margin-top:15px;
-    padding-left:20px;
 }
 
 .recommendation-card li{
-    margin-bottom:10px;
+
+    padding:12px 15px;
+
+    margin-bottom:12px;
+
+    background:#f8fafc;
+
+    border-left:5px solid #2563eb;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    transition:.3s;
+}
+
+.recommendation-card li:hover{
+
+    background:#eef4ff;
+
+    transform:translateX(5px);
 }

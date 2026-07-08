@@ -1,0 +1,36 @@
+.ai-card{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    margin-top:25px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.ai-card h2{
+
+    margin-bottom:20px;
+}
+
+.ai-card p{
+
+    margin:12px 0;
+
+    font-size:17px;
+}
+
+.ai-card ul{
+
+    margin-top:15px;
+
+    padding-left:20px;
+}
+
+.ai-card li{
+
+    margin-bottom:10px;
+}

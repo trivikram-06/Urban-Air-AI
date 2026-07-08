@@ -5,9 +5,10 @@ import RecommendationCard from "../components/RecommendationCard";
 import HealthAdvisory from "../components/HealthAdvisory";
 import PollutionSources from "../components/PollutionSources";
 import EnforcementCard from "../components/EnforcementCard";
+import AIInsights from "../components/AIInsights";
+import DownloadReport from "../components/DownloadReport";
+
 import { usePrediction } from "../hooks/usePrediction";
-
-
 
 import "./Dashboard.css";
 
@@ -15,41 +16,58 @@ function Dashboard() {
   const { prediction } = usePrediction();
 
   return (
-    <>
-      <h1>🌍 Urban Air AI Dashboard</h1>
-      <p>AI Powered Smart City Monitoring System</p>
+    <div className="dashboard">
 
+      <div className="dashboard-title">
+        <h1>🌍 Urban Air AI Dashboard</h1>
+        <p>AI Powered Smart City Monitoring System</p>
+      </div>
+
+      {/* AQI Cards */}
       <div className="cards">
+
         <AQICard
+          icon="🌬"
           title="AQI"
-          value={prediction?.predicted_aqi ?? "--"}
+          value={
+            prediction?.predicted_aqi
+              ? Math.round(prediction.predicted_aqi)
+              : "--"
+          }
         />
 
         <AQICard
+          icon="📊"
           title="Category"
           value={prediction?.aqi_category ?? "--"}
         />
 
         <AQICard
-          title="Risk Level"
+          icon="⚠️"
+          title="Risk"
           value={prediction?.risk_level ?? "--"}
         />
 
         <AQICard
+          icon="🏭"
           title="PM2.5"
-          value={prediction?.pm2_5_ugm3 ?? "--"}
+          value="--"
           unit="µg/m³"
         />
+
       </div>
 
+      {/* Analytics Chart */}
       <div className="chart-section">
         <AnalyticsChart />
       </div>
 
+      {/* Pollution Map */}
       <div className="map-section">
         <PollutionMap />
       </div>
 
+      {/* Information Cards */}
       <HealthAdvisory />
 
       <PollutionSources />
@@ -57,7 +75,15 @@ function Dashboard() {
       <EnforcementCard />
 
       <RecommendationCard />
-    </>
+
+      <AIInsights />
+
+      {/* Download Report */}
+      <div className="download-report">
+        <DownloadReport />
+      </div>
+
+    </div>
   );
 }
 

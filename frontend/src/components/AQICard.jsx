@@ -1,10 +1,18 @@
 import "./AQICard.css";
 
-function AQICard({ title, value, unit }) {
+function AQICard({ title, value, unit, icon }) {
   return (
     <div className="aqi-card">
 
-      <h3>{title}</h3>
+      <div className="aqi-header">
+
+        <div className="aqi-icon">
+          {icon}
+        </div>
+
+        <h3>{title}</h3>
+
+      </div>
 
       <h1>
         {value}

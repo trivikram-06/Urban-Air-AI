@@ -18,3 +18,22 @@ __pycache__/
 .DS_Store
 
 ai/datasets/raw/aqi/aqi_india_38cols_knn_final.csv
+
+# Node
+node_modules/
+npm-debug.log
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Environment
+.env
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db

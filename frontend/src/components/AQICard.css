@@ -1,44 +1,84 @@
 .aqi-card{
 
-    background:white;
+    background:#fff;
 
-    padding:20px;
+    padding:28px;
 
-    border-radius:12px;
+    border-radius:20px;
 
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+    border-top:6px solid #2563eb;
 
     flex:1;
 
-    min-width:200px;
-
-    transition:.3s;
+    min-width:230px;
 }
 
 .aqi-card:hover{
 
-    transform:translateY(-5px);
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 35px rgba(37,99,235,.18);
+}
+
+.aqi-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:25px;
+}
+
+.aqi-icon{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    background:#2563eb;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:30px;
 }
 
 .aqi-card h3{
 
-    color:#555;
+    color:#64748b;
 
-    margin-bottom:10px;
+    font-size:22px;
 
-    font-size:18px;
+    font-weight:600;
 }
 
 .aqi-card h1{
 
-    font-size:40px;
+    font-size:52px;
 
     color:#0f172a;
+
+    margin:0;
 }
 
 .aqi-card span{
 
-    font-size:20px;
+    font-size:22px;
 
-    margin-left:5px;
+    color:#64748b;
+
+    margin-left:6px;
 }
